@@ -12,8 +12,8 @@
   
 
 ## Downloads
-  - [Windows 64-bit](https://www.netacad.com/courses/packet-tracer)
-  - [Linux 64-bit](https://www.netacad.com/courses/packet-tracer)
+  - [Windows 64-bit](https://github.com/sambathkumar02/ZDownloader/blob/master/ZDownloader.exe)
+  - [Linux 64-bit](https://github.com/sambathkumar02/ZDownloader/blob/master/ZDownloader)
 
 ## Usage
 
@@ -30,7 +30,7 @@ Download the executable and open command prompt or powershell and chage to the d
 
 ## Linux
 
-Download the Binary and Terminal and chage to the directory in which the executable is present.Run
+Download the Binary and OPen Terminal and chage to the directory in which the executable is present.Run
 
     ZDownloader -u <url> -d <Directory>
  
