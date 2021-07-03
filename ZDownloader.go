@@ -42,6 +42,20 @@ func FileNameFinder(url string) string {
 }
 
 func Downloader(url string, file_name string) {
+
+	//Need to be fixed -Check for existance of filenames
+	status, err := os.Stat(file_name)
+
+	if status != nil && err == nil {
+		fmt.Print("File Already exists")
+		fmt.Print("\nDo you want to overwrite(y/n):")
+		var choice string
+		fmt.Scan(&choice)
+		if choice == "N" || choice == "n" {
+			os.Exit(0)
+		}
+	}
+
 	file, err := os.Create(file_name)
 	if err != nil {
 		fmt.Print("Unable to create File!")
@@ -83,7 +97,7 @@ func main() {
 	final, _ := url.QueryUnescape(file_name)
 	//Getting user home directory to apend
 	user_default_directory, _ := os.UserHomeDir()
-	final_directory := user_default_directory + `Downloads`
+	final_directory := user_default_directory + `\Downloads\`
 
 	if *directory_ != "" {
 		final_directory = *directory_
@@ -95,6 +109,17 @@ func main() {
 	fmt.Print("File Name :", final)
 	fmt.Print("\nLocation:", file_path)
 	fmt.Println()
+	var option string
+	fmt.Print("Do you want to change file name (y/n):")
+	fmt.Scan(&option)
+	if option == "y" || option == "Y" {
+		fmt.Print("Enter new file name:")
+		fmt.Scan(&final)
+		file_path = final_directory + final
+		fmt.Print("File Name :", final)
+		fmt.Print("\nLocation:", file_path)
+		fmt.Println()
+	}
 
 	Downloader(*url_, file_path)
 
